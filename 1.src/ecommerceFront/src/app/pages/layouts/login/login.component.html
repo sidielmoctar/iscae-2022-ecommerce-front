@@ -3,28 +3,33 @@
   <div class="col-sm-4">
     <mat-card>
       <h1>Se connecter</h1>
-      <form class="example-form">
+      <form class="example-form" [formGroup]="frmLogin">
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Login</mat-label>
           <input type="text" matInput
-                 [formControl]="loginControl"
+                 formControlName="login"
                  placeholder="Saisir votre login">
-          <mat-error *ngIf="loginControl.hasError('required')">
+          <mat-error *ngIf="frmLogin.controls['login'].hasError('required')">
             Login est <strong>obligatoire</strong>
           </mat-error>
         </mat-form-field>
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Mot de passe</mat-label>
           <input type="password" matInput
-                 [formControl]="passwordControl"
+                 formControlName="password"
                  placeholder="Saisir votre mot de passe">
-          <mat-error *ngIf="passwordControl.hasError('required')">
+          <mat-error *ngIf="frmLogin.controls['password'].hasError('required')">
             Mot de passe est <strong>obligatoire</strong>
           </mat-error>
         </mat-form-field>
       </form>
-        <button mat-raised-button color="primary"
-        (click)="utilService.navigateByUrl('apropos')">Se connecter</button>
+      <button mat-raised-button color="primary"
+              (click)="loginIn()">Se connecter
+      </button>
+      <br>
+      <br>
+      <app-show-error [msg]="'Login et/ou mot passe incorrecte!'"
+                      *ngIf="showError"></app-show-error>
     </mat-card>
   </div>
   <div class="col-sm-4"></div>

@@ -23,6 +23,13 @@ const routes: Routes = [
             (m) => m.AdminModule
           ),
       },
+      {
+        path: 'produits',
+        loadChildren: () =>
+          import('../produits/produits.module').then(
+            (m) => m.ProduitsModule
+          ),
+      },
     ]
   },
   {

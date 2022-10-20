@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import {SideBarComponent} from "./side-bar/side-bar.component";
 import {SharedModule} from "../../common/shared/shared.module";
+import {AuthentificationService} from "./authentification.service";
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {SharedModule} from "../../common/shared/shared.module";
     CommonModule,
     LayoutsRoutingModule,
     SharedModule
-  ]
+  ],
+  providers: [AuthentificationService]
 })
 export class LayoutsModule { }
