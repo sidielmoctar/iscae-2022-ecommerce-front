@@ -1,1 +1,31 @@
-<p>login works!</p>
+<div class="row" style="margin-top: 200px">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+    <mat-card>
+      <h1>Se connecter</h1>
+      <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Login</mat-label>
+          <input type="text" matInput
+                 [formControl]="loginControl"
+                 placeholder="Saisir votre login">
+          <mat-error *ngIf="loginControl.hasError('required')">
+            Login est <strong>obligatoire</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Mot de passe</mat-label>
+          <input type="password" matInput
+                 [formControl]="passwordControl"
+                 placeholder="Saisir votre mot de passe">
+          <mat-error *ngIf="passwordControl.hasError('required')">
+            Mot de passe est <strong>obligatoire</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+        <button mat-raised-button color="primary"
+        (click)="utilService.navigateByUrl('apropos')">Se connecter</button>
+    </mat-card>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
