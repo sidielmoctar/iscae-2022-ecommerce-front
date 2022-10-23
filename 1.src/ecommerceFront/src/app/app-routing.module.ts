@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.component";
+import {AppGuard} from "./services/app.guard";
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
-    // canActivate: [AppAuthGuard],
     pathMatch: 'full',
   },
   {
